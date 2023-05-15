@@ -1,0 +1,131 @@
+---
+import likeIcon from '../assets/Like.svg'
+import twitterBlueIcon from '../assets/Twitter (Blue).svg'
+import saraAvatar from '../assets/userAvatar01.svg'
+import jessicaAvatar from '../assets/userAvatar02.svg'
+import jackAvatar from '../assets/userAvatar03.svg'
+
+const tweets = [
+  {
+    author: 'Sara May',
+    username: '@sara_may',
+    photo: saraAvatar,
+    tweet:
+      "I just tired out @chirp and it's amazing, love all the analytics I can see.",
+    likes: '2',
+    date: 'March 2, 2021'
+  },
+  {
+    author: 'Jack Scott',
+    username: '@jackscott_',
+    photo: jackAvatar,
+    tweet:
+      'I initially started using Chirp to support the co-founder as I personally knew him, but after having tried it out for a few weeks, I can genuinely say this changed my Twitter game.',
+    likes: '32',
+    date: 'March 2, 2021'
+  },
+  {
+    author: 'Jessica May',
+    username: '@jmay98',
+    photo: jessicaAvatar,
+    tweet:
+      'Absolutely love everything about Chirp, from the design to how everything works smoothly.',
+    likes: '221',
+    date: 'March 2, 2021'
+  }
+]
+---
+
+<ul class='feedback'>
+  {
+    tweets.map(({ author, username, photo, tweet, likes, date }) => (
+      <li>
+        <div class='wrapper'>
+          <div class='profile'>
+            <img class='avatar' src={photo} alt={`${author} profile picture`} />
+            <div>
+              <h3>{author}</h3>
+              <p>{username}</p>
+            </div>
+          </div>
+          <img class='logo' src={twitterBlueIcon} alt='Twitter Icon' />
+        </div>
+        <p class='tweet'>{tweet}</p>
+
+        <div class='stats'>
+          <div>
+            <img src={likeIcon} alt='Like icon' />
+            <p> {likes}</p>
+          </div>
+
+          <p>{date}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .feedback {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    flex: 1;
+  }
+  :is(p, h3) {
+    margin: 0;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .avatar {
+    height: 3.75rem;
+    width: auto;
+  }
+  .profile div p {
+    font-size: 0.875rem;
+  }
+  .logo {
+    height: 1.5rem;
+    width: auto;
+  }
+  .tweet {
+    margin: 1rem 0;
+    line-height: 1.4;
+  }
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stats > div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .feedback {
+      overflow-x: auto;
+      flex-direction: row;
+    }
+  }
+  @media (min-width: 1024px) {
+  }
+</style>

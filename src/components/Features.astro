@@ -1,0 +1,72 @@
+---
+const features = [
+  {
+    icon: '📈',
+    title: 'Analytics',
+    description:
+      'We constantly monitor your audience as it grows -- so you can Tweet when your followers are most likely to be online and ready to engage with your content.'
+  },
+  {
+    icon: '🤓',
+    title: 'Smart Analyzer',
+    description:
+      'Chirp automatically recognizes your followrs most active times and automatically sends you notifications if you"re missing out on an opportunity.'
+  },
+  {
+    icon: '🗞️',
+    title: 'Scheduled Your Tweets',
+    description:
+      'Quality tweets drive tons of engagement. With Chirp, you can write tweets in an advance and schedule them when your audience is most likely to read.'
+  },
+  {
+    icon: '☀️',
+    title: 'Dark Mode',
+    description:
+      'Friendly on the eyes, no matter what time you write your Tweets. All colors are choosen to make sure your eyes are at ease at all times.'
+  }
+]
+---
+
+<ul class='features-list'>
+  {
+    features.map(({ description, icon, title }) => (
+      <li>
+        <div>{icon}</div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .features-list {
+    margin-top: 2rem;
+    display: grid;
+
+    gap: 2rem;
+  }
+  div {
+    font-size: 2rem;
+  }
+  h3 {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  li {
+    border: 1px solid #c4c4c4;
+    border-radius: 0.25rem;
+    padding: 1rem;
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+    .features-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import twitterBlackIcon from '../assets/Twitter (Black).svg'
+import Link from './Link.astro'
+---
+
+<footer>
+  <div class='container'>
+    <a class='logo' href='/'> Chirp.</a>
+    <ul>
+      <li>
+        <img src={twitterBlackIcon} alt='Twitter Icon' />
+      </li>
+      <li>
+        <Link variant='secondary'>Privary Policy</Link>
+      </li>
+      <li>
+        <Link variant='secondary'>Terms of Use</Link>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #d7f5f5;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  footer > div img {
+    padding: 0 0.5rem;
+  }
+
+  footer ul li a {
+    color: black !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  footer > div ul {
+    display: flex;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    footer > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>

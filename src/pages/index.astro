@@ -1,0 +1,190 @@
+---
+import checkmarkIcon from '../assets/Checkmark.svg'
+import twitterIcon from '../assets/Twitter.svg'
+import Features from '../components/Features.astro'
+import Link from '../components/Link.astro'
+import Tweets from '../components/Tweets.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title='Chirp'>
+  <main>
+    <section class='hero'>
+      <div class='container'>
+        <div>
+          <h1>Twitter analytics taken to a whole new level.</h1>
+          <p>
+            Chirp is a suite of Twitter analytics that will help you better
+            understand your audience, which tweets they like, and most
+            importantly, when they are the most active on Twitter.
+          </p>
+          <div class='cta'>
+            <Link>
+              <img src={twitterIcon} alt='Twitter Icon' /> Sign in with Twitter
+            </Link>
+            <Link variant='secondary' href='#features'>Learn more &rarr;</Link>
+          </div>
+          <ul>
+            <li></li>
+          </ul>
+          <p>
+            Join <span>195</span> others who have analyzed their followers and scheduled
+            <span>1342</span> tweets!
+          </p>
+        </div>
+        <picture>
+          <source
+            media='(min-width: 1024px)'
+            srcset='/hero-image-desktop.png'
+          />
+          <source media='(min-width: 768px)' srcset='/hero-image-tablet.png' />
+          <img src='/hero-image-desktop.png' alt='Analytics' />
+        </picture>
+      </div>
+    </section>
+    <section class='features' id='features'>
+      <div class='container'>
+        <h2>Features that help you Tweet smarter.</h2>
+        <Features />
+      </div>
+    </section>
+    <section class='feedback'>
+      <div class='container'>
+        <h2>What our customers say</h2>
+        <Tweets />
+      </div>
+    </section>
+    <section class='pricing' id='pricing'>
+      <h2>One simple price plan.</h2>
+      <p>
+        Start growing your Twitter account by analyzing your follower's
+        patterns.
+      </p>
+      <div class='pricing-card'>
+        <h3>
+          Monthly <br /><span>$9</span>/mo
+        </h3>
+        <ul>
+          <li>
+            <img src={checkmarkIcon} alt='Checkmark Icon' />
+            Unlimited* scheduled tweets and threads.
+          </li>
+          <li>
+            <img src={checkmarkIcon} alt='Checkmark Icon' />
+            Schedule up to 3 weeks in advance.
+          </li>
+          <li>
+            <img src={checkmarkIcon} alt='Checkmark Icon' />
+            Real-time audience analytics tracking up to 5k followers.
+          </li>
+        </ul>
+        <Link>
+          <img src={twitterIcon} alt='Twitter Icon' /> Sign in with Twitter
+        </Link>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    padding: 4rem 0;
+  }
+
+  .hero > div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h1 {
+    color: black;
+    font-size: 3rem;
+  }
+  span {
+    color: #1f7898;
+    font-weight: 600;
+  }
+  .cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .features {
+    background: #ffffff;
+  }
+  h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    width: 40%;
+  }
+
+  .feedback {
+    background: #d7f5f5;
+  }
+
+  .pricing {
+    text-align: center;
+    background: #ffffff;
+  }
+  .pricing h2 {
+    width: 100%;
+  }
+  .pricing p {
+    width: 50%;
+    margin: 0.5rem auto;
+  }
+  .pricing-card {
+    border: 1px solid #ffad23;
+    background: #fbf8f3;
+    max-width: 448px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+  .pricing-card h3 {
+    text-align: left;
+    margin: 0;
+    font-size: 1.25rem;
+    color: #737373;
+    margin-bottom: 0.75rem;
+  }
+  .pricing-card h3 > span {
+    color: black;
+    font-size: 3rem;
+  }
+  .pricing-card ul {
+    border-top: 1px solid #d9d9d7;
+    border-bottom: 1px solid #d9d9d7;
+  }
+  .pricing-card li {
+    text-align: left;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .pricing-card img {
+    height: 2rem;
+    width: auto;
+  }
+  .pricing-card a {
+    margin-top: 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .pricing-card a img {
+    height: 1.5rem;
+    width: auto;
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+    .hero > div {
+      display: grid;
+      grid-template-columns: 55% 33%;
+      gap: 5rem;
+    }
+  }
+</style>

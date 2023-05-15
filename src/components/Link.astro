@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+  variant?: 'primary' | 'secondary'
+}
+
+const {
+  variant = 'primary',
+  href = 'javascript:void(0);',
+  class: className
+} = Astro.props
+---
+
+<a href={href} class:list={[className, variant]}><slot /></a>
+
+<style>
+  a {
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 0.25rem;
+  }
+  .primary {
+    background: #1da1f2;
+    color: #fff;
+  }
+  .primary:is(:hover, :focus) {
+    background: #29a8f7;
+  }
+  .secondary {
+    color: #595959;
+  }
+  .secondary:is(:hover, :focus) {
+    text-decoration: underline;
+    color: #414141;
+  }
+</style>
